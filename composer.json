@@ -1,7 +1,6 @@
 {
     "name": "itbz/fpdi",
     "description": "Unofficial PSR-0 compliant version of the FPDI library",
-    "homepage": "http://www.fpdf.org/",
     "type": "library",
     "require": {
         "php": ">=5.3.0",
