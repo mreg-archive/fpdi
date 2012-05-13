@@ -8,7 +8,7 @@ This is version 1.4.2 of FPDI (and version 1.2 of FPDF_TPL) with some minor chan
 
 * the library is namespaced in fpdi. To create instance use
 
-    $fpdi = new \fpdi\FPDF();
+    $fpdi = new \fpdi\FPDI();
 
 * directory structure follow the PSR-0 standard with src/ as root
 
