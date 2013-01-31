@@ -15,3 +15,8 @@ This is version 1.4.2 of FPDI (and version 1.2 of FPDF_TPL) with some minor chan
 * constructors are renamed *__construct* instead of class name
 
 * support for TCPDF via *fpdi2tcpdf_bridge* is removed (incompatible with PSR-0)
+
+
+## Installning with composor
+
+The package exists in the packagist repository as *itbz/fpdi*
