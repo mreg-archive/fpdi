@@ -1,8 +1,8 @@
-<?php
+<?php namespace fpdi;
 //
-//  FPDI - Version 1.4.2
+//  FPDI - Version 1.4.4
 //
-//    Copyright 2004-2011 Setasign - Jan Slabon
+//    Copyright 2004-2013 Setasign - Jan Slabon
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -16,14 +16,16 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 //
-namespace fpdi;
 
-define('FPDI_VERSION', '1.4.2');
+define('FPDI_VERSION', '1.4.4');
 
 // Check for TCPDF and remap TCPDF to FPDF
 if (class_exists('TCPDF', false)) {
-#    require_once('fpdi2tcpdf_bridge.php');
+#require_once('fpdi2tcpdf_bridge.php');
 }
+
+#require_once('fpdf_tpl.php');
+#require_once('fpdi_pdf_parser.php');
 
 
 class FPDI extends FPDF_TPL {
@@ -334,7 +336,7 @@ class FPDI extends FPDF_TPL {
                             break;
                     }
                 }
-            } else if ($tpl['x'] != 0 || $tpl['y'] != 0) {
+            } elseif ($tpl['x'] != 0 || $tpl['y'] != 0) {
                 $tx = -$tpl['x'] * 2;
                 $ty = $tpl['y'] * 2;
             }
@@ -377,7 +379,9 @@ class FPDI extends FPDF_TPL {
             	}
             	$this->_out('>>');
             }
-
+            
+            $this->_out('/Group <</Type/Group/S/Transparency>>');
+            
             $nN = $this->n; // TCPDF: rem new "n"
             $this->n = $cN; // TCPDF: reset to current "n"
             if (is_subclass_of($this, 'TCPDF')) {
@@ -529,15 +533,23 @@ class FPDI extends FPDF_TPL {
         		$this->buffer .= $s;
         } else {
             if ($this->state == 2) {
-				if (isset($this->footerlen[$this->page]) AND ($this->footerlen[$this->page] > 0)) {
+				if ($this->inxobj) {
+					// we are inside an XObject template
+					$this->xobjects[$this->xobjid]['outdata'] .= $s;
+				} elseif ((!$this->InFooter) AND isset($this->footerlen[$this->page]) AND ($this->footerlen[$this->page] > 0)) {
 					// puts data before page footer
-					$page = substr($this->getPageBuffer($this->page), 0, -$this->footerlen[$this->page]);
-					$footer = substr($this->getPageBuffer($this->page), -$this->footerlen[$this->page]);
-					$this->setPageBuffer($this->page, $page . ' ' . $s . "\n" . $footer);
+					$pagebuff = $this->getPageBuffer($this->page);
+					$page = substr($pagebuff, 0, -$this->footerlen[$this->page]);
+					$footer = substr($pagebuff, -$this->footerlen[$this->page]);
+					$this->setPageBuffer($this->page, $page.$s.$footer);
+					// update footer position
+					$this->footerpos[$this->page] += strlen($s);
 				} else {
+					// set page data
 					$this->setPageBuffer($this->page, $s, true);
 				}
-			} else {
+			} elseif ($this->state > 0) {
+				// set general data
 				$this->setBuffer($s);
 			}
         }
@@ -557,13 +569,20 @@ class FPDI extends FPDF_TPL {
      */
     function _closeParsers() {
         if ($this->state > 2 && count($this->parsers) > 0) {
-          	foreach ($this->parsers as $k => $_){
-            	$this->parsers[$k]->closeFile();
-            	$this->parsers[$k] = null;
-            	unset($this->parsers[$k]);
-            }
+          	$this->cleanUp();
             return true;
         }
         return false;
+    }
+    
+    /**
+     * Removes cylced references and closes the file handles of the parser objects
+     */
+    function cleanUp() {
+    	foreach ($this->parsers as $k => $_){
+        	$this->parsers[$k]->cleanUp();
+        	$this->parsers[$k] = null;
+        	unset($this->parsers[$k]);
+        }
     }
 }

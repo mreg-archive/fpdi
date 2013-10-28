@@ -1,8 +1,8 @@
-<?php
+<?php namespace fpdi;
 //
-//  FPDI - Version 1.4.2
+//  FPDI - Version 1.4.4
 //
-//    Copyright 2004-2011 Setasign - Jan Slabon
+//    Copyright 2004-2013 Setasign - Jan Slabon
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -17,7 +17,7 @@
 //  limitations under the License.
 //
 
-namespace fpdi;
+#require_once('pdf_parser.php');
 
 class fpdi_pdf_parser extends pdf_parser {
 
@@ -79,6 +79,14 @@ class fpdi_pdf_parser extends pdf_parser {
         
         // count pages;
         $this->page_count = count($this->pages);
+    }
+    
+    /**
+     * Removes reference to fpdi object and closes the file handle
+     */
+    function cleanUp() {
+    	$this->fpdi = null;
+    	$this->closeFile();
     }
     
     /**
@@ -191,7 +199,7 @@ class fpdi_pdf_parser extends pdf_parser {
             } else {
                 $contents[] = $content;
             }
-        } else if ($content_ref[0] == PDF_TYPE_ARRAY) {
+        } elseif ($content_ref[0] == PDF_TYPE_ARRAY) {
             foreach ($content_ref[1] AS $tmp_content_ref) {
                 $contents = array_merge($contents,$this->_getPageContent($tmp_content_ref));
             }
@@ -220,7 +228,7 @@ class fpdi_pdf_parser extends pdf_parser {
             
             if ($_filter[0] == PDF_TYPE_TOKEN) {
                 $filters[] = $_filter;
-            } else if ($_filter[0] == PDF_TYPE_ARRAY) {
+            } elseif ($_filter[0] == PDF_TYPE_ARRAY) {
                 $filters = $_filter[1];
             }
         }
@@ -235,22 +243,27 @@ class fpdi_pdf_parser extends pdf_parser {
                 	// $stream .= "\x0A";
                 	// $stream .= "\x0D";
                 	if (function_exists('gzuncompress')) {
+                		$oStream = $stream;
                         $stream = (strlen($stream) > 0) ? @gzuncompress($stream) : '';
                     } else {
                         $this->error(sprintf('To handle %s filter, please compile php with zlib support.',$_filter[1]));
                     }
                     
                     if ($stream === false) {
-                    	$this->error('Error while decompressing stream.');
+                    	$oStream = substr($oStream, 2);
+                    	$stream = @gzinflate($oStream);
+                    	if ($stream == false) {
+                    		$this->error('Error while decompressing stream.');
+                    	}
                     }
                 break;
                 case '/LZWDecode':
-                    #include_once('filters/FilterLZW_FPDI.php');
+#include_once('filters/FilterLZW_FPDI.php');
                     $decoder = new FilterLZW_FPDI($this->fpdi);
                     $stream = $decoder->decode($stream);
                     break;
                 case '/ASCII85Decode':
-                    #include_once('filters/FilterASCII85_FPDI.php');
+#include_once('filters/FilterASCII85_FPDI.php');
                     $decoder = new FilterASCII85_FPDI($this->fpdi);
                     $stream = $decoder->decode($stream);
                     break;
@@ -297,7 +310,7 @@ class fpdi_pdf_parser extends pdf_parser {
                          'urx' => max($b[0][1], $b[2][1]) / $k,
                          'ury' => max($b[1][1], $b[3][1]) / $k,
                          );
-        } else if (!isset ($page[1][1]['/Parent'])) {
+        } elseif (!isset ($page[1][1]['/Parent'])) {
             return false;
         } else {
             return $this->getPageBox($this->pdf_resolve_object($this->c, $page[1][1]['/Parent']), $box_index, $k);

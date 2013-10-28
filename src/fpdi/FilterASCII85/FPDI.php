@@ -1,8 +1,8 @@
-<?php
+<?php namespace fpdi;
 //
-//  FPDI - Version 1.4.2
+//  FPDI - Version 1.4.4
 //
-//    Copyright 2004-2011 Setasign - Jan Slabon
+//    Copyright 2004-2013 Setasign - Jan Slabon
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
@@ -16,13 +16,14 @@
 //  See the License for the specific language governing permissions and
 //  limitations under the License.
 //
-namespace fpdi;
+
+#require_once('FilterASCII85.php');
 
 class FilterASCII85_FPDI extends FilterASCII85 {
 
     var $fpdi;
     
-    function FilterASCII85_FPDI(&$fpdi) {
+    function __construct(&$fpdi) {
         $this->fpdi =& $fpdi;
     }
 
