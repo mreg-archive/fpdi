@@ -1,5 +1,6 @@
 FPDI
 ====
+[![Latest Stable Version](https://poser.pugx.org/itbz/fpdi/v/stable.png)](https://packagist.org/packages/itbz/fpdi)
 
 Unofficial PSR-0 compliant version of the [FPDI](http://www.setasign.com/products/fpdi/about/) library.
 
@@ -19,18 +20,15 @@ This is version 1.4.4 of FPDI (and version 1.2.3 of FPDF_TPL) with some minor ch
 * See `update_package.sh` for a complete list of changes.
 
 
-
-## Installning
-
+Installning
+-----------
 Either download the source directly from github, or use *composer* to manage
 dependencies for you. For historical reasons the package exists in the packagist
 repository as `itbz/fpdi`.
 
 
-
-## License
-
-
+License
+-------
 Copyright 2004-2013 Setasign - Jan Slabon
 
 Licensed under the Apache License, Version 2.0 (the "License");
