@@ -20,7 +20,7 @@ This is version 1.4.4 of FPDI (and version 1.2.3 of FPDF_TPL) with some minor ch
 * See `update_package.sh` for a complete list of changes.
 
 
-Installning
+Installing
 -----------
 Either download the source directly from github, or use *composer* to manage
 dependencies for you. For historical reasons the package exists in the packagist
