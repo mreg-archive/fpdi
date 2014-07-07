@@ -2,28 +2,19 @@ FPDI
 ====
 [![Latest Stable Version](https://poser.pugx.org/itbz/fpdi/v/stable.png)](https://packagist.org/packages/itbz/fpdi)
 
-Unofficial PSR-0 compliant version of the [FPDI](http://www.setasign.com/products/fpdi/about/) library.
-
-
-This is version 1.4.4 of FPDI (and version 1.2.3 of FPDF_TPL) with some minor changes:
+Unofficial PSR-0 compliant version of the [FPDI](http://www.setasign.com/products/fpdi/about/)
+library with some minor changes:
 
 * The library is namespaced in fpdi. To create instance use
-
     ```$fpdi = new \fpdi\FPDI();```
-
 * Directory structure follow the PSR-0 standard with src/ as root.
-
 * Constructors are renamed `__construct` instead of class name.
-
-* Support for TCPDF via `fpdi2tcpdf_bridge` is removed (incompatible with PSR-0).
-
 * See `update_package.sh` for a complete list of changes.
 
 
 Installing
 -----------
-Either download the source directly from github, or use *composer* to manage
-dependencies for you. For historical reasons the package exists in the packagist
+Install using *composer*. For historical reasons the package exists in the packagist
 repository as `itbz/fpdi`.
 
 
