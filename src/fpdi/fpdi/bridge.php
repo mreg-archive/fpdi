@@ -1,4 +1,4 @@
-<?php namespace fpdi;
+<?php namespace fpdi; use TCPDF;
 //
 //  FPDI - Version 1.5.2
 //

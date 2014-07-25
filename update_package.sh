@@ -22,7 +22,7 @@ mkdir src/fpdi/pdf
 # Perform sed manipulations of source files
 function fnMoveAndProcess {
     cat fpdi/$1.php | sed \
-        -e 's/^<?php/<?php namespace fpdi;/' \
+        -e 's/^<?php/<?php namespace fpdi; use TCPDF;/' \
         -e 's/^[[:space:]]*require/#require/I' \
         -e 's/^[[:space:]]*include/#include/I' \
         -e 's/fpdi_bridge[[:space:]]extends[[:space:]]FPDF/fpdi_bridge extends \\fpdf\\FPDF /' \
@@ -55,11 +55,11 @@ curl -sS https://getcomposer.org/installer | php
 php composer.phar install --dev
 
 # Run tests 
-phpunit --bootstrap vendor/autoload.php tests
+phpunit --bootstrap=vendor/autoload.php tests
 
-# Assert that tests/AA.pdf exists
-if [ -f tests/AA.pdf ]; then
+# Assert that tests/FPDF_AA.pdf exists
+if [ -f tests/FPDF_AA.pdf ]; then
     echo "Update successful."
 else
-    echo "tests/AA.pdf not created. Update unsuccessful."
+    echo "tests/FPDF_AA.pdf not created. Update unsuccessful."
 fi

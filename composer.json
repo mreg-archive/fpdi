@@ -7,6 +7,13 @@
         "php": ">=5.3.0",
         "itbz/fpdf": "1.7.*"
     },
+    "require-dev": {
+        "tecnick.com/tcpdf": "6.*",
+        "phpunit/phpunit": "4.*"
+    },
+    "suggest": {
+        "tecnick.com/tcpdf": "FPDI supports TCPDF as a replacement of FPDF."
+    },
     "autoload": {
         "psr-0": {
             "fpdi": "src/"
