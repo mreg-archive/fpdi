@@ -2,20 +2,29 @@ FPDI
 ====
 [![Latest Stable Version](https://poser.pugx.org/itbz/fpdi/v/stable.png)](https://packagist.org/packages/itbz/fpdi)
 
+
 Unofficial PSR-0 compliant version of the [FPDI](http://www.setasign.com/products/fpdi/about/)
 library with some minor changes:
 
-* The library is namespaced in fpdi. To create instance use
-    ```$fpdi = new \fpdi\FPDI();```
-* Directory structure follow the PSR-0 standard with src/ as root.
+* The library is namespaced in fpdi. To create instance use:
+```php
+$fpdi = new \fpdi\FPDI();
+```
+* Directory structure follow the PSR-0 standard with `src/` as root.
 * Constructors are renamed `__construct` instead of class name.
 * See `update_package.sh` for a complete list of changes.
 
 
 Installing
 -----------
-Install using *composer*. For historical reasons the package exists in the packagist
-repository as `itbz/fpdi`.
+Install using [composer](https://getcomposer.org/). For historical reasons the
+package exists in the packagist repository as `itbz/fpdi`.
+
+
+Support for TCPDF
+-----------------
+To use with TCPDF version `1.5.2-patch1` or later must be used, due to a
+conversion error in earlier versions.
 
 
 License
