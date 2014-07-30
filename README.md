@@ -1,7 +1,4 @@
-FPDI
-====
-[![Latest Stable Version](https://poser.pugx.org/itbz/fpdi/v/stable.png)](https://packagist.org/packages/itbz/fpdi)
-[![Build Status](https://travis-ci.org/hanneskod/fpdi.svg)](https://travis-ci.org/hanneskod/fpdi)
+# FPDI [![Latest Stable Version](https://poser.pugx.org/itbz/fpdi/v/stable.png)](https://packagist.org/packages/itbz/fpdi) [![Build Status](https://travis-ci.org/hanneskod/fpdi.svg)](https://travis-ci.org/hanneskod/fpdi)
 
 
 Unofficial PSR-0 compliant version of the [FPDI](http://www.setasign.com/products/fpdi/about/)
