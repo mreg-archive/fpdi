@@ -176,7 +176,7 @@ class FPDI extends FPDF_TPL
     public function importPage($pageNo, $boxName = 'CropBox', $groupXObject = true)
     {
         if ($this->_inTpl) {
-            throw new LogicException('Please import the desired pages before creating a new template.');
+            throw new \LogicException('Please import the desired pages before creating a new template.');
         }
         
         $fn = $this->currentFilename;
@@ -192,7 +192,7 @@ class FPDI extends FPDF_TPL
         $parser->setPageNo($pageNo);
 
         if (!in_array($boxName, $parser->availableBoxes)) {
-            throw new InvalidArgumentException(sprintf('Unknown box: %s', $boxName));
+            throw new \InvalidArgumentException(sprintf('Unknown box: %s', $boxName));
         }
             
         $pageBoxes = $parser->getPageBoxes($pageNo, $this->k);

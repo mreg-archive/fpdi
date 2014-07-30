@@ -189,7 +189,7 @@ class pdf_parser
         $this->_f = @fopen($this->filename, 'rb');
 
         if (!$this->_f) {
-            throw new InvalidArgumentException(sprintf('Cannot open %s !', $filename));
+            throw new \InvalidArgumentException(sprintf('Cannot open %s !', $filename));
         }
 
         $this->getPdfVersion();
@@ -235,7 +235,7 @@ class pdf_parser
     public function getEncryption()
     {
         if (isset($this->_xref['trailer'][1]['/Encrypt'])) {
-            throw new Exception('File is encrypted!');
+            throw new \Exception('File is encrypted!');
         }
     }
 
@@ -262,7 +262,7 @@ class pdf_parser
     protected function _readRoot()
     {
         if ($this->_xref['trailer'][1]['/Root'][0] != self::TYPE_OBJREF) {
-            throw new Exception('Wrong Type of Root-Element! Must be an indirect reference');
+            throw new \Exception('Wrong Type of Root-Element! Must be an indirect reference');
         }
 
         $this->_root = $this->resolveObject($this->_xref['trailer'][1]['/Root']);
@@ -291,14 +291,14 @@ class pdf_parser
         }
 
         if (false === $keywordPos) {
-            throw new Exception('Unable to find "startxref" keyword.');
+            throw new \Exception('Unable to find "startxref" keyword.');
         }
 
         $pos = strlen($data) - $keywordPos;
         $data = substr($data, $pos);
 
         if (!preg_match('/\s*(\d+).*$/s', $data, $matches)) {
-            throw new Exception('Unable to find pointer to xref table.');
+            throw new \Exception('Unable to find pointer to xref table.');
         }
 
         return (int) $matches[1];
@@ -326,7 +326,7 @@ class pdf_parser
             $xrefStreamObjDec = $this->_readValue($this->_c);
 
             if (is_array($xrefStreamObjDec) && isset($xrefStreamObjDec[0]) && $xrefStreamObjDec[0] == self::TYPE_OBJDEC) {
-                throw new Exception(
+                throw new \Exception(
                     sprintf(
                         'This document (%s) probably uses a compression technique which is not supported by the ' .
                         'free parser shipped with FPDI. (See https://www.setasign.com/fpdi-pdf-parser for more details)',
@@ -334,7 +334,7 @@ class pdf_parser
                     )
                 );
             } else {
-                throw new Exception('Unable to find xref table.');
+                throw new \Exception('Unable to find xref table.');
             }
         }
 
@@ -354,7 +354,7 @@ class pdf_parser
         }
 
         if ($trailerPos === false) {
-            throw new Exception('Trailer keyword not found after xref table');
+            throw new \Exception('Trailer keyword not found after xref table');
         }
 
         $data = ltrim(substr($data, 0, $trailerPos));
@@ -398,7 +398,7 @@ class pdf_parser
                         $start++;
                         break;
                     default:
-                        throw new Exception('Unexpected data in xref table');
+                        throw new \Exception('Unexpected data in xref table');
                 }
             }
         }
@@ -666,7 +666,7 @@ class pdf_parser
                         // reset stack
                         $c->stack = array();
                     } else {
-                        throw new Exception(
+                        throw new \Exception(
                             sprintf("Unable to find object (%s, %s) at expected location.", $objSpec[1], $objSpec[2])
                         );
                     }
@@ -706,7 +706,7 @@ class pdf_parser
                 }
 
             } else {
-                throw new Exception(
+                throw new \Exception(
                     sprintf("Unable to find object (%s, %s) at expected location.", $objSpec[1], $objSpec[2])
                 );
             }
@@ -868,7 +868,7 @@ class pdf_parser
                         $oStream = $stream;
                         $stream = (strlen($stream) > 0) ? @gzuncompress($stream) : '';
                     } else {
-                        throw new Exception(
+                        throw new \Exception(
                             sprintf('To handle %s filter, please compile php with zlib support.', $filter[1])
                         );
                     }
@@ -882,7 +882,7 @@ class pdf_parser
                         }
 
                         if ($stream === false) {
-                            throw new Exception('Error while decompressing stream.');
+                            throw new \Exception('Error while decompressing stream.');
                         }
                     }
                     break;
@@ -904,7 +904,7 @@ class pdf_parser
                 case null:
                     break;
                 default:
-                    throw new Exception(sprintf('Unsupported Filter: %s', $filter[1]));
+                    throw new \Exception(sprintf('Unsupported Filter: %s', $filter[1]));
             }
         }
 

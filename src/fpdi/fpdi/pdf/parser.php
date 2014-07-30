@@ -101,7 +101,7 @@ class fpdi_pdf_parser extends pdf_parser
         $pageNo = ((int) $pageNo) - 1;
 
         if ($pageNo < 0 || $pageNo >= $this->getPageCount()) {
-            throw new InvalidArgumentException('Invalid page number!');
+            throw new \InvalidArgumentException('Invalid page number!');
         }
 
         $this->pageNo = $pageNo;
@@ -249,7 +249,7 @@ class fpdi_pdf_parser extends pdf_parser
     public function getPageBoxes($pageNo, $k)
     {
         if (!isset($this->_pages[$pageNo - 1])) {
-            throw new InvalidArgumentException('Page ' . $pageNo . ' does not exists.');
+            throw new \InvalidArgumentException('Page ' . $pageNo . ' does not exists.');
         }
 
         return $this->_getPageBoxes($this->_pages[$pageNo - 1], $k);
@@ -285,7 +285,7 @@ class fpdi_pdf_parser extends pdf_parser
     public function getPageRotation($pageNo)
     {
         if (!isset($this->_pages[$pageNo - 1])) {
-            throw new InvalidArgumentException('Page ' . $pageNo . ' does not exists.');
+            throw new \InvalidArgumentException('Page ' . $pageNo . ' does not exists.');
         }
 
         return $this->_getPageRotation($this->_pages[$pageNo - 1]);
@@ -331,7 +331,7 @@ class fpdi_pdf_parser extends pdf_parser
     	$_kids = $this->resolveObject($pages[1][1]['/Kids']);
 
         if (!is_array($_kids)) {
-            throw new Exception('Cannot find /Kids in current /Page-Dictionary');
+            throw new \Exception('Cannot find /Kids in current /Page-Dictionary');
         }
 
         if ($_kids[0] === self::TYPE_OBJECT) {

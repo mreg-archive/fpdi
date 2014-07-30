@@ -43,7 +43,7 @@ class FilterLZW
     public function decode($data)
     {
         if ($data[0] == 0x00 && $data[1] == 0x01) {
-            throw new Exception('LZW flavour not supported.');
+            throw new \Exception('LZW flavour not supported.');
         }
 
         $this->_initsTable();
@@ -72,7 +72,7 @@ class FilterLZW
                 }
 
                 if (!isset($this->_sTable[$code])) {
-                    throw new Exception('Error while decompression LZW compressed data.');
+                    throw new \Exception('Error while decompression LZW compressed data.');
                 }
 
                 $unCompData .= $this->_sTable[$code];
@@ -168,6 +168,6 @@ class FilterLZW
      */
     public function encode($in)
     {
-        throw new LogicException("LZW encoding not implemented.");
+        throw new \LogicException("LZW encoding not implemented.");
     }
 }

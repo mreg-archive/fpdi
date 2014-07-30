@@ -25,6 +25,7 @@ function fnMoveAndProcess {
         -e 's/^<?php/<?php namespace fpdi; use TCPDF;/' \
         -e 's/^[[:space:]]*require/#require/I' \
         -e 's/^[[:space:]]*include/#include/I' \
+        -e 's/throw new /throw new \\/I' \
         -e 's/fpdi_bridge[[:space:]]extends[[:space:]]FPDF/fpdi_bridge extends \\fpdf\\FPDF /' \
         -e 's/[[:space:]]function[[:space:]]'$1'/ function __construct/' \
         -e 's/parent::pdf_parser/parent::__construct/' > src/fpdi/$2.php
@@ -50,16 +51,5 @@ else
 	rm -rf fpdi
 fi
 
-# Install dependencies
-curl -sS https://getcomposer.org/installer | php
-php composer.phar install --dev
-
-# Run tests 
-phpunit --bootstrap=vendor/autoload.php tests
-
-# Assert that tests/FPDF_AA.pdf exists
-if [ -f tests/FPDF_AA.pdf ]; then
-    echo "Update successful."
-else
-    echo "tests/FPDF_AA.pdf not created. Update unsuccessful."
-fi
+# Run testsuite
+bash test
