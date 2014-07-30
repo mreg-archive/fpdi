@@ -12,7 +12,7 @@
         "phpunit/phpunit": "4.*"
     },
     "suggest": {
-        "tecnick.com/tcpdf": "FPDI supports TCPDF as a replacement of FPDF."
+        "tecnick.com/tcpdf": "FPDI supports TCPDF as a replacement for FPDF"
     },
     "autoload": {
         "psr-0": {

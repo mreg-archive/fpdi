@@ -59,8 +59,8 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase
 
     /**
      * Since the code is namespaced the creation of new spl exceptions must refer
-     * to the global namespace. This must be canged througout the codebase. This
-     * test assures that the converting script does coveres thos issue.
+     * to the global namespace. This must be changed throughout the codebase.
+     * This test asserts that the converting script coveres this issue.
      */
     public function testThrowSplException()
     {
