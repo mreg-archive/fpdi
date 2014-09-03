@@ -12,8 +12,8 @@ matrix:
         - php: hhvm
 
 before_script:
-    - composer require tecnick.com/tcpdf:6.*
-    - composer install
+    - composer remove hanneskod/classtools
+    - composer install --dev
 
 script:
     - phpunit --bootstrap=vendor/autoload.php tests
