@@ -11,12 +11,8 @@ $fpdi = new \fpdi\FPDI();
 ```
 
 PLEASE NOT THAT THIS PACKAGE IS PROCESSED PROGRAMMATICALLY
-
 BUG REPORTS AND SUGGESTED CHANGES SHOULD BE DIRECTED TO
-[SETASIGN](http://www.setasign.com/products/fpdi/about/) DIRECTLY
-
-BUGS RELATED TO THIS CONVERSION CAN BE REPORTED
-[HERE](https://github.com/hanneskod/fpdi/issues)
+[SETASIGN](http://www.setasign.com/products/fpdi/about/)
 
 
 Installing
