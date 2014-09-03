@@ -1,16 +1,20 @@
 # FPDI [![Latest Stable Version](https://poser.pugx.org/itbz/fpdi/v/stable.png)](https://packagist.org/packages/itbz/fpdi) [![Build Status](https://travis-ci.org/hanneskod/fpdi.svg)](https://travis-ci.org/hanneskod/fpdi) [![Dependency Status](https://gemnasium.com/hanneskod/fpdi.svg)](https://gemnasium.com/hanneskod/fpdi)
 
 
-Unofficial PSR-0 compliant version of the [FPDI](http://www.setasign.com/products/fpdi/about/)
+Unofficial PSR-4 compliant version of the [FPDI](http://www.setasign.com/products/fpdi/about/)
 library with some minor changes:
 
-* The library is namespaced in fpdi. To create instance use:
+The library is namespaced in fpdi. To create instance use:
+
 ```php
 $fpdi = new \fpdi\FPDI();
 ```
-* Directory structure follow the PSR-0 standard with `src/` as root.
-* Constructors are renamed `__construct` instead of class name.
-* See `update_package.sh` for a complete list of changes.
+
+PLEASE NOT THAT THIS PACKAGE IS PROCESSED PROGRAMMATICALLY FOR THE itbz\\fpdi RELEASE
+BUG REPORTS AND SUGGESTED CHANGES SHOULD BE DIRECTED TO
+[SETASIGN](http://www.setasign.com/products/fpdi/about/) DIRECTLY
+BUGS RELATED TO THIS CONVERSION CAN BE REPORTED
+[HERE](https://github.com/hanneskod/fpdi/issues)
 
 
 Installing
@@ -27,7 +31,7 @@ conversion error in earlier versions.
 
 License
 -------
-Copyright 2004-2013 Setasign - Jan Slabon
+Copyright 2004-2014 Setasign - Jan Slabon
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

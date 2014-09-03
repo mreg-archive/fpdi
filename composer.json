@@ -1,6 +1,6 @@
 {
     "name": "itbz/fpdi",
-    "description": "Unofficial PSR-0 compliant version of the FPDI library",
+    "description": "Unofficial PSR-4 compliant version of the FPDI library",
     "type": "library",
     "license": "Apache-2.0",
     "require": {
@@ -9,14 +9,18 @@
     },
     "require-dev": {
         "tecnick.com/tcpdf": "6.*",
-        "phpunit/phpunit": "4.*"
+        "phpunit/phpunit": "4.*",
+        "hanneskod/classtools": "1.0.0-beta3",
+        "symfony/finder": "~2.3",
+        "nikic/php-parser": "1.0.0-beta1"
     },
     "suggest": {
         "tecnick.com/tcpdf": "FPDI supports TCPDF as a replacement for FPDF"
     },
     "autoload": {
-        "psr-0": {
-            "fpdi": "src/"
+        "psr-4": {
+            "fpdi\\": "src/",
+            "fpdidev\\": "dev/"
         }
     }
 }

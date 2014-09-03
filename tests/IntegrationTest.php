@@ -30,12 +30,14 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase
      */
     public function testFPDF()
     {
+        $filename = __DIR__ . '/FPDF_AA.pdf';
+        @unlink($filename);
+
         $fpdi = new FPDI;
 
         $this->assertInstanceOf('\fpdf\FPDF', $fpdi);
         $this->assertNotInstanceOf('\TCPDF', $fpdi);
 
-        $filename = __DIR__ . '/FPDF_AA.pdf';
         $this->createPDF($fpdi, $filename);
         $this->assertTrue(file_exists($filename), "$filename should be created");
     }
@@ -45,6 +47,9 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase
      */
     public function testTCPDF()
     {
+        $filename = __DIR__ . '/TCPDF_AA.pdf';
+        @unlink($filename);
+
         // Force autoloading of TCPDF
         new \TCPDF;
         $fpdi = new FPDI;
@@ -52,7 +57,6 @@ class IntegrationTest extends \PHPUnit_Framework_TestCase
         $this->assertNotInstanceOf('\fpdf\FPDF', $fpdi);
         $this->assertInstanceOf('\TCPDF', $fpdi);
 
-        $filename = __DIR__ . '/TCPDF_AA.pdf';
         $this->createPDF($fpdi, $filename);
         $this->assertTrue(file_exists($filename), "$filename should be created");
     }
