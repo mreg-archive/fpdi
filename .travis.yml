@@ -12,7 +12,8 @@ matrix:
         - php: hhvm
 
 before_script:
-    - composer install --dev --prefer-source
+    - composer require tecnick.com/tcpdf:6.*
+    - composer install
 
 script:
     - phpunit --bootstrap=vendor/autoload.php tests
