@@ -43,26 +43,12 @@
             />
     </target>
 
-    <target name="install" depends="getcomposer">
+    <target name="install">
         <if>
             <available file="${VENDOR_DIR}"/>
             <else>
                 <exec
-                    command="php composer.phar install --dev"
-                    dir="${APP_ROOT}"
-                    checkreturn="true"
-                    passthru="true"
-                    />
-            </else>
-        </if>
-    </target>
-
-    <target name="getcomposer">
-        <if>
-            <available file="${APP_ROOT}/composer.phar"/>
-            <else>
-                <exec
-                    command="curl -sS https://getcomposer.org/installer | php"
+                    command="composer install --dev"
                     dir="${APP_ROOT}"
                     checkreturn="true"
                     passthru="true"
