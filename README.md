@@ -1,8 +1,6 @@
-> PLEASE NOT THAT THIS PACKAGE IS PROCESSED PROGRAMMATICALLY
+> PLEASE NOT THAT THIS PACKAGE IS PROCESSED PROGRAMMATICALLY.
 > BUG REPORTS AND SUGGESTED CHANGES SHOULD BE DIRECTED TO
 > [SETASIGN](http://www.setasign.com/products/fpdi/about/)
-
----
 
 # FPDI
 
@@ -22,7 +20,7 @@ $fpdi = new \fpdi\FPDI();
 Installing
 -----------
 Install using [composer](https://getcomposer.org/). For historical reasons the
-package exists in the packagist repository as `itbz/fpdi`.
+package exists in packagist as `itbz/fpdi`.
 
 
 Support for TCPDF
