@@ -1,8 +1,15 @@
-# FPDI [![Latest Stable Version](https://poser.pugx.org/itbz/fpdi/v/stable.png)](https://packagist.org/packages/itbz/fpdi) [![Build Status](https://travis-ci.org/hanneskod/fpdi.svg)](https://travis-ci.org/hanneskod/fpdi) [![Dependency Status](https://gemnasium.com/hanneskod/fpdi.svg)](https://gemnasium.com/hanneskod/fpdi)
+# FPDI
 
+[![Packagist Version](https://img.shields.io/packagist/v/itbz/fpdi.svg?style=flat-square)](https://packagist.org/packages/itbz/fpdi)
+[![Build Status](https://img.shields.io/travis/hanneskod/fpdi/master.svg?style=flat-square)](https://travis-ci.org/hanneskod/fpdi)
+[![Dependency Status](https://img.shields.io/gemnasium/hanneskod/fpdi.svg?style=flat-square)](https://gemnasium.com/hanneskod/fpdi)
 
 Unofficial PSR-4 compliant version of the [FPDI](http://www.setasign.com/products/fpdi/about/)
-library with some minor changes:
+library with some minor changes.
+
+> Install using **[composer](http://getcomposer.org/)**. Exists as
+> **[itbz/fpdi](https://packagist.org/packages/itbz/fpdi)**
+> in the **[packagist](https://packagist.org/)** repository.
 
 The library is namespaced in fpdi. To create instance use:
 
@@ -11,14 +18,9 @@ $fpdi = new \fpdi\FPDI();
 ```
 
 PLEASE NOT THAT THIS PACKAGE IS PROCESSED PROGRAMMATICALLY
+
 BUG REPORTS AND SUGGESTED CHANGES SHOULD BE DIRECTED TO
 [SETASIGN](http://www.setasign.com/products/fpdi/about/)
-
-
-Installing
------------
-Install using [composer](https://getcomposer.org/). For historical reasons the
-package exists in the packagist repository as `itbz/fpdi`.
 
 
 Support for TCPDF
