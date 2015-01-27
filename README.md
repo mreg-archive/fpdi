@@ -1,4 +1,4 @@
-> PLEASE NOT THAT THIS PACKAGE IS PROCESSED PROGRAMMATICALLY.
+> PLEASE NOTE THAT THIS PACKAGE IS PROCESSED PROGRAMMATICALLY.
 > BUG REPORTS AND SUGGESTED CHANGES SHOULD BE DIRECTED TO
 > [SETASIGN](http://www.setasign.com/products/fpdi/about/)
 
@@ -27,6 +27,11 @@ Support for TCPDF
 -----------------
 To use with TCPDF version `1.5.2-patch1` or later must be used, due to a
 conversion error in earlier versions.
+
+
+Contributing
+------------
+See the [CONTRIBUTING](CONTRIBUTING.md) file.
 
 
 License
