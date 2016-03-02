@@ -17,7 +17,7 @@ $header = <<<EOF
  * @package   FPDI
  * @copyright Copyright (c) 2015 Setasign - Jan Slabon (http://www.setasign.com)
  * @license   http://opensource.org/licenses/mit-license The MIT License
- * @version   1.6.0
+ * @version   1.6.1
  */
 
 /**
@@ -26,6 +26,8 @@ $header = <<<EOF
 * DIRECTLY BUGS RELATED TO THIS CONVERSION CAN BE REPORTED AT
 * https://github.com/hanneskod/fpdi/issues
 */
+
+
 EOF;
 
 $converter = new Converter(

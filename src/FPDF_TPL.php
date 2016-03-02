@@ -5,7 +5,7 @@
  * @package   FPDI
  * @copyright Copyright (c) 2015 Setasign - Jan Slabon (http://www.setasign.com)
  * @license   http://opensource.org/licenses/mit-license The MIT License
- * @version   1.6.0
+ * @version   1.6.1
  */
 
 /**
@@ -13,7 +13,9 @@
 * RELEASE BUG REPORTS AND SUGGESTED CHANGES SHOULD BE DIRECTED TO SETASIGN
 * DIRECTLY BUGS RELATED TO THIS CONVERSION CAN BE REPORTED AT
 * https://github.com/hanneskod/fpdi/issues
-*/namespace fpdi {
+*/
+
+namespace fpdi {
     if (!class_exists('fpdi_bridge')) {
     }
     class FPDF_TPL extends \fpdi\fpdi_bridge
@@ -170,7 +172,7 @@
             }
             return $ret;
         }
-        public function AddPage($orientation = '', $format = '', $keepmargins = false, $tocpage = false)
+        public function AddPage($orientation = '', $format = '', $rotationOrKeepmargins = false, $tocpage = false)
         {
             if (is_subclass_of($this, '\\TCPDF')) {
                 $args = func_get_args();
@@ -179,7 +181,7 @@
             if ($this->_inTpl) {
                 throw new \LogicException('Adding pages in templates is not possible!');
             }
-            parent::AddPage($orientation, $format);
+            parent::AddPage($orientation, $format, $rotationOrKeepmargins);
         }
         public function Link($x, $y, $w, $h, $link, $spaces = 0)
         {
