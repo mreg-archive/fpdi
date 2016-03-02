@@ -7,7 +7,7 @@
     <property name="VENDOR_DIR" value="${APP_ROOT}/vendor"/>
     <property name="FPDI_DIR" value="${APP_ROOT}/fpdi.source"/>
     <property name="TEMP_DIR" value="/tmp"/>
-    <property name="FPDI_URL" value="https://www.setasign.com/supra/kon2_dl/94040/FPDI-1.5.4.zip"/>
+    <property name="FPDI_URL" value="https://www.setasign.com/supra/kon2_dl/100933/FPDI-1.6.0.zip"/>
 
     <target name="build" depends="convert,test,cleanup">
     </target>

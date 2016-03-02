@@ -11,32 +11,21 @@ use Symfony\Component\Finder\Finder;
 
 $header = <<<EOF
 <?php
-//
-//  FPDI - Version 1.5.4
-//
-//    Copyright 2004-2015 Setasign - Jan Slabon
-//
-//  Licensed under the Apache License, Version 2.0 (the "License");
-//  you may not use this file except in compliance with the License.
-//  You may obtain a copy of the License at
-//
-//      http://www.apache.org/licenses/LICENSE-2.0
-//
-//  Unless required by applicable law or agreed to in writing, software
-//  distributed under the License is distributed on an "AS IS" BASIS,
-//  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-//  See the License for the specific language governing permissions and
-//  limitations under the License.
-//
-//  itbz\\fpdi
-//
-//  PLEASE NOTE THAT THIS FILE IS PROCESSED PROGRAMMATICALLY FOR THE itbz\\fpdi RELEASE
-//  BUG REPORTS AND SUGGESTED CHANGES SHOULD BE DIRECTED TO SETASIGN DIRECTLY
-//  BUGS RELATED TO THIS CONVERSION CAN BE REPORTED AT
-//
-//  https://github.com/hanneskod/fpdi/issues
-//
+/**
+ * This file is part of FPDI
+ *
+ * @package   FPDI
+ * @copyright Copyright (c) 2015 Setasign - Jan Slabon (http://www.setasign.com)
+ * @license   http://opensource.org/licenses/mit-license The MIT License
+ * @version   1.6.0
+ */
 
+/**
+* PLEASE NOTE THAT THIS FILE IS PROCESSED PROGRAMMATICALLY FOR THE itbz\\fpdi
+* RELEASE BUG REPORTS AND SUGGESTED CHANGES SHOULD BE DIRECTED TO SETASIGN
+* DIRECTLY BUGS RELATED TO THIS CONVERSION CAN BE REPORTED AT
+* https://github.com/hanneskod/fpdi/issues
+*/
 EOF;
 
 $converter = new Converter(
