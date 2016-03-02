@@ -12,7 +12,7 @@ use Symfony\Component\Finder\Finder;
 $header = <<<EOF
 <?php
 //
-//  FPDI - Version 1.5.3
+//  FPDI - Version 1.5.4
 //
 //    Copyright 2004-2015 Setasign - Jan Slabon
 //
