@@ -12,15 +12,15 @@ use Symfony\Component\Finder\Finder;
 $header = <<<EOF
 <?php
 //
-//  FPDI - Version 1.5.2
+//  FPDI - Version 1.5.3
 //
-//  Copyright 2004-2014 Setasign - Jan Slabon
+//    Copyright 2004-2015 Setasign - Jan Slabon
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
 //
-//  http://www.apache.org/licenses/LICENSE-2.0
+//      http://www.apache.org/licenses/LICENSE-2.0
 //
 //  Unless required by applicable law or agreed to in writing, software
 //  distributed under the License is distributed on an "AS IS" BASIS,
@@ -40,7 +40,7 @@ $header = <<<EOF
 EOF;
 
 $converter = new Converter(
-    (new Finder)->files()->in($argv[1]),
+    (new Finder)->files()->in($argv[1])->name('*.php'),
     $header
 );
 

@@ -18,7 +18,7 @@
         "itbz/fpdf": "1.7.*"
     },
     "require-dev": {
-        "tecnickcom/tcpdf": ">=6.2.12",
+        "tecnickcom/tcpdf": "^6.2.12",
         "phpunit/phpunit": "4.*",
         "hanneskod/classtools": "~1.0",
         "symfony/finder": "~2.3",

@@ -1,14 +1,14 @@
 <?php
 //
-//  FPDI - Version 1.5.2
+//  FPDI - Version 1.5.3
 //
-//  Copyright 2004-2014 Setasign - Jan Slabon
+//    Copyright 2004-2015 Setasign - Jan Slabon
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
 //  you may not use this file except in compliance with the License.
 //  You may obtain a copy of the License at
 //
-//  http://www.apache.org/licenses/LICENSE-2.0
+//      http://www.apache.org/licenses/LICENSE-2.0
 //
 //  Unless required by applicable law or agreed to in writing, software
 //  distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,16 +18,18 @@
 //
 //  itbz\fpdi
 //
-//  PLEASE NOT THAT THIS FILE IS PROCESSED PROGRAMMATICALLY FOR THE itbz\fpdi RELEASE
+//  PLEASE NOTE THAT THIS FILE IS PROCESSED PROGRAMMATICALLY FOR THE itbz\fpdi RELEASE
 //  BUG REPORTS AND SUGGESTED CHANGES SHOULD BE DIRECTED TO SETASIGN DIRECTLY
 //  BUGS RELATED TO THIS CONVERSION CAN BE REPORTED AT
 //
 //  https://github.com/hanneskod/fpdi/issues
 //
 namespace fpdi {
+    if (!class_exists('FPDF_TPL')) {
+    }
     class FPDI extends \fpdi\FPDF_TPL
     {
-        const VERSION = '1.5.2';
+        const VERSION = '1.5.3';
         public $currentFilename;
         public $parsers = array();
         public $currentParser;
@@ -47,11 +49,13 @@ namespace fpdi {
                 $this->parsers[$filename] = $this->_getPdfParser($filename);
                 $this->setPdfVersion(max($this->getPdfVersion(), $this->parsers[$filename]->getPdfVersion()));
             }
-            $this->currentParser =& $this->parsers[$filename];
+            $this->currentParser = $this->parsers[$filename];
             return $this->parsers[$filename]->getPageCount();
         }
         protected function _getPdfParser($filename)
         {
+            if (!class_exists('fpdi_pdf_parser')) {
+            }
             return new \fpdi\fpdi_pdf_parser($filename);
         }
         public function getPdfVersion()
@@ -159,7 +163,7 @@ namespace fpdi {
         protected function _putimportedobjects()
         {
             foreach ($this->parsers as $filename => $p) {
-                $this->currentParser =& $p;
+                $this->currentParser = $p;
                 if (!isset($this->_objStack[$filename]) || !is_array($this->_objStack[$filename])) {
                     continue;
                 }

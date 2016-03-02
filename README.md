@@ -6,7 +6,7 @@
 
 [![Packagist Version](https://img.shields.io/packagist/v/itbz/fpdi.svg?style=flat-square)](https://packagist.org/packages/itbz/fpdi)
 [![Build Status](https://img.shields.io/travis/hanneskod/fpdi/master.svg?style=flat-square)](https://travis-ci.org/hanneskod/fpdi)
-[![Dependency Status](https://img.shields.io/gemnasium/hanneskod/fpdi.svg?style=flat-square)](https://gemnasium.com/hanneskod/fpdi) 
+[![Dependency Status](https://img.shields.io/gemnasium/hanneskod/fpdi.svg?style=flat-square)](https://gemnasium.com/hanneskod/fpdi)
 [![Reference Status](https://www.versioneye.com/php/itbz:fpdi/reference_badge.svg?style=flat)](https://www.versioneye.com/php/itbz:fpdi/references)
 
 Unofficial PSR-4 compliant version of the [FPDI](http://www.setasign.com/products/fpdi/about/)
@@ -17,27 +17,25 @@ The library is namespaced in fpdi. To create instance use:
 ```php
 $fpdi = new \fpdi\FPDI();
 ```
-
 Installing
 -----------
 Install using [composer](https://getcomposer.org/). For historical reasons the
 package exists in packagist as `itbz/fpdi`.
 
+    composer require itbz/fpdi:~1.0
 
 Support for TCPDF
 -----------------
 To use with TCPDF version `1.5.2-patch1` or later must be used, due to a
 conversion error in earlier versions.
 
-
 Contributing
 ------------
 See the [CONTRIBUTING](CONTRIBUTING.md) file.
 
-
 License
 -------
-Copyright 2004-2014 Setasign - Jan Slabon
+Copyright 2004-2015 Setasign - Jan Slabon
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
