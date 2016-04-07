@@ -33,6 +33,9 @@ Support for TCPDF
 To use with TCPDF version `1.5.2-patch1` or later must be used, due to a
 conversion error in earlier versions.
 
+Please note that the `TCPDF` class must be loaded prior to instantiating FPDI
+to force the usage of TCPDF. An example can be found [here](https://github.com/hanneskod/fpdi/issues/16).
+
 Contributing
 ------------
 See the [CONTRIBUTING](CONTRIBUTING.md) file.
