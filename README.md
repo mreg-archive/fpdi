@@ -14,12 +14,11 @@ The library is namespaced in fpdi. To create instance use:
 ```php
 $fpdi = new \fpdi\FPDI();
 ```
-> NOTE that since version 1.5.3 FPDI is officially available via composer and
-> [github](https://github.com/Setasign/FPDI). However this requires some
-> additional setup and is not psr-4 compliant.
->
-> Since this fork is namespaced it is possible to install both the official and
-> the namespaced versions in the same project, if needed.
+
+> *NOTE!* Since version 1.5.3 FPDI is officially available via composer and
+> [github](https://github.com/Setasign/FPDI). Since this fork is namespaced it
+> is possible to install both the official and the namespaced versions in the
+> same project, if needed.
 
 Installing
 -----------
